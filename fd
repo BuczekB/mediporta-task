@@ -1,0 +1,33 @@
+[33mcommit 24e8c9251736d5b977be133f023a02660117449f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Jakub Buczyński <72788108+BuczekB@users.noreply.github.com>
+Date:   Fri Mar 29 15:44:04 2024 +0100
+
+    Revert "add material ui"
+    
+    This reverts commit c943158c7a9752ab3283da154c883ebe97ed28ad.
+
+[33mcommit 12c0ed361e5b40636aad0108f4f3044c067f5a51[m
+Author: Jakub Buczyński <72788108+BuczekB@users.noreply.github.com>
+Date:   Fri Mar 29 15:42:36 2024 +0100
+
+    Revert "add material ui"
+    
+    This reverts commit c943158c7a9752ab3283da154c883ebe97ed28ad.
+
+[33mcommit c943158c7a9752ab3283da154c883ebe97ed28ad[m
+Author: Jakub Buczyński <72788108+BuczekB@users.noreply.github.com>
+Date:   Thu Mar 28 14:27:25 2024 +0100
+
+    add material ui
+
+[33mcommit 409b21ef3b3917f195443d82fa63bee2f932c647[m
+Author: Jakub Buczyński <72788108+BuczekB@users.noreply.github.com>
+Date:   Thu Mar 28 14:22:59 2024 +0100
+
+    fetch data
+
+[33mcommit be4331a082b900bcc50e3708d2b89e3c0daa88c2[m
+Author: Jakub Buczyński <72788108+BuczekB@users.noreply.github.com>
+Date:   Wed Mar 27 14:53:51 2024 +0100
+
+    init git
