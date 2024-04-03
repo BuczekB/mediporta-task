@@ -6,6 +6,7 @@ import { DataContext } from '../Data/DataContext'
 import CircularProgress from '@mui/material/CircularProgress';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import Typography from '@mui/material/Typography';
 
 function ListOfItems() {
 
@@ -31,9 +32,16 @@ function ListOfItems() {
       
         const listOfTags =  data.data.items.map((item) =>{
           return(
-            <List key={item.name}>
-              <ListItem >Name: {item.name}</ListItem>
-              <ListItem >Count: {item.count}</ListItem>
+            <List  sx={{ display: 'flex', width: '30vw', justifyContent:'center'}} key={item.name}>
+              <ListItem  sx={{ display:'flex', justifyContent:'center'}}>
+                  <Typography variant="h6" gutterBottom>
+                  Name: {item.name}
+                  </Typography>
+                </ListItem>
+              <ListItem sx={{ display:'flex', justifyContent:'center'}}>
+              <Typography  variant="h6" gutterBottom>
+                  Count: {item.count}
+                  </Typography></ListItem>
             </List>
           )
          })
@@ -42,7 +50,7 @@ function ListOfItems() {
        }
 
   return (
-    <List  sx={{ display:'flex', flexDirection: 'column', minHeight: '85vh'}}>
+    <List  sx={{ display:'flex', flexDirection: 'column', minHeight: '85vh', justifyContent:'center'}}>
     {readyTable? readyTable : <CircularProgress />}
     </List>
   )

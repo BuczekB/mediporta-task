@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField'
 
 const CustomList = ({handleInputChange, handleChange, handleSerch, numberOfItems, sort }) => {
   return (
-    <Box>
+    <Box sx={{ display: 'flex', paddingTop: '20px' }}>
         <TextField
        id="outlined-basic"
         label="Choose limit of items per page"
