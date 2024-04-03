@@ -1,48 +1,29 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import FetchData from './Data/FetchData'
+import CoutomList from './Components/CustomList'
+import ListOfItems from './Components/ListOfItems'
+import ErrorPage from './Components/ErrorPage'
 import { DataContext } from './Data/DataContext';
 
 import Pagination from '@mui/material/Pagination'
-import TextField from '@mui/material/TextField'
-import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
+
 
 
 function App() {
 
   const [data, setData] = useState()
   const [paginationNumb, setPaginationNumb] = useState()
-  const [readyTable, setReadyTable] = useState()
   const [numberOfItems, setNumberOfItems] = useState(6)
-
-
-  useEffect(() =>{
-  
-    if(data && data.data){
-      printData()
-    } else{
-      console.log('err');
-    }
-  
-  },[data])
+  const [sort, setSort] = useState('');
+  const [serch, setSerch] = useState(false);
+  const [errorPage, setErrorPage] = useState(false);
+ 
 
 
  const handlePageChange = (e, page) =>{
   setPaginationNumb(page)
-  setReadyTable()
- }
-
- const printData = () =>{
-  const listOfTags =  data.data/**.items**/.map((item) =>{
-    return(
-      <ListItem key={item.name}>{item.name}</ListItem>
-    )
-   })
-   
-   setReadyTable(listOfTags)
  }
 
  const handleInputChange = (e) =>{
@@ -50,27 +31,35 @@ function App() {
   setNumberOfItems(e.target.value)
  }
 
+ const handleChange = (e) => {
+  setSort(e.target.value);
+}
+
+const handleSerch = () =>{
+  setSerch(!serch)
+}
+
 
   return (
     <DataContext.Provider value={data}>
+      {errorPage? <ErrorPage/> : ''}
       <Box  sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center', }}>
-      <TextField
-       id="outlined-basic"
-        label="Choose limit of items per page"
-         variant="outlined"
-          type='number'
-          onChange={handleInputChange}
-          value={numberOfItems} />
+        <CoutomList
+        handleInputChange={handleInputChange}
+        handleChange={handleChange}
+        handleSerch={handleSerch}
+        numberOfItems={numberOfItems}
+        sort={sort}
+        />
         <FetchData
           setData={setData}
           paginationNumb={paginationNumb}
           numberOfItems={numberOfItems}
-        />
-        <div>
-          <List>
-       {readyTable? readyTable : <CircularProgress />}
-       </List>
-        </div>
+          sort={sort}
+          serch={serch}
+          setErrorPage={setErrorPage}
+        />  
+          <ListOfItems />
         <Pagination
         onChange={handlePageChange}
         count={10} />
