@@ -20,7 +20,7 @@ function App() {
   const [serch, setSerch] = useState(false);
   const [errorPage, setErrorPage] = useState(false);
  
-
+//console.log(`${data.headers.content-length}`);
 
  const handlePageChange = (e, page) =>{
   setPaginationNumb(page)
@@ -62,7 +62,7 @@ const handleSerch = () =>{
           <ListOfItems />
         <Pagination
         onChange={handlePageChange}
-        count={10} />
+        count={Math.round(150/numberOfItems)} />
       </Box>
     </DataContext.Provider>
   )

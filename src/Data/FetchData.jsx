@@ -12,7 +12,7 @@ const FetchData =   ({setData, paginationNumb=1, numberOfItems=6, sort='name', s
       try{
         const responseFetch = await axios({
           method: 'get',
-          url: 'https://api.stackexchange.com/2.3/tags?order=desc&site=stackoverflow',
+          url: 'https://api.stackexchange.com/2.3/tags?fromdate=946684800&order=desc&site=stackoverflow',
           params: {page: paginationNumb, pagesize: numberOfItems, sort: sort}
       })
         .then(res => {
@@ -24,7 +24,7 @@ const FetchData =   ({setData, paginationNumb=1, numberOfItems=6, sort='name', s
           setErrorPage(true)
       }
     }
-
+    
     setTimeout(() => fetchRespone(), 1000);
   },[paginationNumb, serch])
 
