@@ -25,7 +25,7 @@ const FetchData =   ({setData, paginationNumb=1, numberOfItems=6, sort='name', s
       }
     }
     
-    setTimeout(() => fetchRespone(), 1000);
+    setTimeout(() => fetchRespone(), 100);
   },[paginationNumb, serch])
 
   
